@@ -1,0 +1,37 @@
+<%= form_for(@ubicacion) do |f| %>
+  <% if @ubicacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ubicacion.errors.count, "error") %> prohibited this ubicacion from being saved:</h2>
+
+      <ul>
+      <% @ubicacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :longitud %><br>
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br>
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :referencia %><br>
+    <%= f.text_area :referencia %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad_id %><br>
+    <%= f.text_field :ciudad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad_id %><br>
+    <%= f.number_field :ciudad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

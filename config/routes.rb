@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ubicacions
+
   resources :ciudads
 
   resources :lugars
