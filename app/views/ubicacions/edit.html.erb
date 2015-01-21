@@ -1,6 +1,5 @@
-<h1>Editing ubicacion</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @ubicacion %> |
-<%= link_to 'Back', ubicacions_path %>
+<%- model_class = Ubicacion -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Ubicacion %></h1>
+</div>
+<%= render :partial => 'form' %>
