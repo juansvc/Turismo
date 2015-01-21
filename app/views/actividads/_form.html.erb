@@ -1,37 +1,34 @@
-<%= form_for(@actividad) do |f| %>
-  <% if @actividad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@actividad.errors.count, "error") %> prohibited this actividad from being saved:</h2>
-
-      <ul>
-      <% @actividad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @actividad, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :descripcion, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :descripcion, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_inicio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_inicio, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_fin, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_fin, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_actividad_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :tipo_actividad_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :hora_inicio %><br>
-    <%= f.time_select :hora_inicio %>
-  </div>
-  <div class="field">
-    <%= f.label :hora_fin %><br>
-    <%= f.time_select :hora_fin %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_actividad_id %><br>
-    <%= f.text_field :tipo_actividad_id %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_actividad_id %><br>
-    <%= f.number_field :tipo_actividad_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  actividads_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

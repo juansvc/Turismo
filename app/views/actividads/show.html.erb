@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Actividad -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Actividad %></h1>
+</div>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @actividad.descripcion %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:descripcion) %></dt>
+      <dd><pre class="prettyprint"><%= @actividad.descripcion %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:hora_inicio) %></dt>
+      <dd><pre class="prettyprint"><%= @actividad.hora_inicio %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:hora_fin) %></dt>
+      <dd><pre class="prettyprint"><%= @actividad.hora_fin %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:tipo_actividad_id) %></dt>
+      <dd><pre class="prettyprint"><%= @actividad.tipo_actividad_id %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Hora inicio:</strong>
-  <%= @actividad.hora_inicio %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              actividads_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_actividad_path(@actividad), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              actividad_path(@actividad),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Hora fin:</strong>
-  <%= @actividad.hora_fin %>
-</p>
-
-<p>
-  <strong>Tipo actividad:</strong>
-  <%= @actividad.tipo_actividad %>
-</p>
-
-<p>
-  <strong>Tipo actividad:</strong>
-  <%= @actividad.tipo_actividad_id %>
-</p>
-
-<%= link_to 'Edit', edit_actividad_path(@actividad) %> |
-<%= link_to 'Back', actividads_path %>
