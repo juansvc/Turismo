@@ -1,21 +1,16 @@
-<%= form_for(@nombre_transporte) do |f| %>
-  <% if @nombre_transporte.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@nombre_transporte.errors.count, "error") %> prohibited this nombre_transporte from being saved:</h2>
-
-      <ul>
-      <% @nombre_transporte.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @nombre_transporte, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :nombre, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nombre, :class => 'text-field form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  nombre_transportes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

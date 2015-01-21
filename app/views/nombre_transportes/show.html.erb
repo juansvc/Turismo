@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = NombreTransporte -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => NombreTransporte %></h1>
+</div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @nombre_transporte.nombre %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nombre) %></dt>
+      <dd><pre class="prettyprint"><%= @nombre_transporte.nombre %></pre></dd>
+  </dl>
+</div>
 
-<%= link_to 'Edit', edit_nombre_transporte_path(@nombre_transporte) %> |
-<%= link_to 'Back', nombre_transportes_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              nombre_transportes_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_nombre_transporte_path(@nombre_transporte), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              nombre_transporte_path(@nombre_transporte),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
