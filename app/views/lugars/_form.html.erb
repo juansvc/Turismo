@@ -1,0 +1,49 @@
+<%= form_for(@lugar) do |f| %>
+  <% if @lugar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lugar.errors.count, "error") %> prohibited this lugar from being saved:</h2>
+
+      <ul>
+      <% @lugar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre_lugar %><br>
+    <%= f.text_field :nombre_lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_lugar %><br>
+    <%= f.text_area :descripcion_lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :telefonos %><br>
+    <%= f.text_area :telefonos %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_lugar_id %><br>
+    <%= f.text_field :tipo_lugar_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ubicacion_id %><br>
+    <%= f.text_field :ubicacion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_lugar_id %><br>
+    <%= f.number_field :tipo_lugar_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ubicacion_id %><br>
+    <%= f.number_field :ubicacion_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre lugar:</strong>
+  <%= @lugar.nombre_lugar %>
+</p>
+
+<p>
+  <strong>Descripcion lugar:</strong>
+  <%= @lugar.descripcion_lugar %>
+</p>
+
+<p>
+  <strong>Telefonos:</strong>
+  <%= @lugar.telefonos %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @lugar.link %>
+</p>
+
+<p>
+  <strong>Tipo lugar:</strong>
+  <%= @lugar.tipo_lugar %>
+</p>
+
+<p>
+  <strong>Ubicacion:</strong>
+  <%= @lugar.ubicacion %>
+</p>
+
+<p>
+  <strong>Tipo lugar:</strong>
+  <%= @lugar.tipo_lugar_id %>
+</p>
+
+<p>
+  <strong>Ubicacion:</strong>
+  <%= @lugar.ubicacion_id %>
+</p>
+
+<%= link_to 'Edit', edit_lugar_path(@lugar) %> |
+<%= link_to 'Back', lugars_path %>
