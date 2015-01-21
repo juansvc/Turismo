@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @comentario.comentario %>
+</p>
+
+<p>
+  <strong>Lugar:</strong>
+  <%= @comentario.lugar %>
+</p>
+
+<p>
+  <strong>Lugar:</strong>
+  <%= @comentario.lugar_id %>
+</p>
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>
