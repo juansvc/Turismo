@@ -1,29 +1,38 @@
-<h1>Listing comentarios</h1>
-
-<table>
+<%- model_class = Comentario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Comentario %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Comentario</th>
-      <th>Lugar</th>
-      <th>Lugar</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:comentario) %></th>
+      <th><%= model_class.human_attribute_name(:lugar_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @comentarios.each do |comentario| %>
       <tr>
+        <td><%= comentario.id %></td>
         <td><%= comentario.comentario %></td>
-        <td><%= comentario.lugar %></td>
         <td><%= comentario.lugar_id %></td>
-        <td><%= link_to 'Show', comentario %></td>
-        <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
-        <td><%= link_to 'Destroy', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l comentario.created_at, format: :long %></td>
+        <td>
+          <%= link_to comentario_path(comentario), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to comentario_path(comentario), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Comentario', new_comentario_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_comentario_path,
+            :class => 'btn btn-primary' %>
