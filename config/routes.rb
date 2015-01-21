@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tipo_actividads
+
   resources :actividads
 
   resources :comentarios
