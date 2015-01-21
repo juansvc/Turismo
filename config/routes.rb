@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :transportes
+
   resources :tipo_lugars
 
   resources :imagens

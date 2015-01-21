@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lugar salida:</strong>
+  <%= @transporte.lugar_salida %>
+</p>
+
+<p>
+  <strong>Lugar llegada:</strong>
+  <%= @transporte.lugar_llegada %>
+</p>
+
+<p>
+  <strong>Hora salida:</strong>
+  <%= @transporte.hora_salida %>
+</p>
+
+<p>
+  <strong>Hora llegada:</strong>
+  <%= @transporte.hora_llegada %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @transporte.fecha %>
+</p>
+
+<p>
+  <strong>Nombre transporte:</strong>
+  <%= @transporte.nombre_transporte %>
+</p>
+
+<p>
+  <strong>Nombre transporte:</strong>
+  <%= @transporte.nombre_transporte_id %>
+</p>
+
+<%= link_to 'Edit', edit_transporte_path(@transporte) %> |
+<%= link_to 'Back', transportes_path %>
