@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :actividads
+
   resources :comentarios
 
   resources :nombre_transportes
