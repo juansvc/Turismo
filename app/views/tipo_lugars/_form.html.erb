@@ -1,21 +1,16 @@
-<%= form_for(@tipo_lugar) do |f| %>
-  <% if @tipo_lugar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tipo_lugar.errors.count, "error") %> prohibited this tipo_lugar from being saved:</h2>
-
-      <ul>
-      <% @tipo_lugar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @tipo_lugar, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :nombre_tipo, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nombre_tipo, :class => 'text-field form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nombre_tipo %><br>
-    <%= f.text_field :nombre_tipo %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  tipo_lugars_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
