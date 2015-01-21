@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :nombre_transportes
+
   resources :transportes
 
   resources :tipo_lugars
