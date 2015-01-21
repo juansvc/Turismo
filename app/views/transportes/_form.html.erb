@@ -1,45 +1,46 @@
-<%= form_for(@transporte) do |f| %>
-  <% if @transporte.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transporte.errors.count, "error") %> prohibited this transporte from being saved:</h2>
-
-      <ul>
-      <% @transporte.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @transporte, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :lugar_salida, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :lugar_salida, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :lugar_llegada, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :lugar_llegada, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_salida, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_salida, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hora_llegada, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :hora_llegada, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fecha, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :fecha, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nombre_transporte_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :nombre_transporte_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :lugar_salida %><br>
-    <%= f.text_area :lugar_salida %>
-  </div>
-  <div class="field">
-    <%= f.label :lugar_llegada %><br>
-    <%= f.text_area :lugar_llegada %>
-  </div>
-  <div class="field">
-    <%= f.label :hora_salida %><br>
-    <%= f.time_select :hora_salida %>
-  </div>
-  <div class="field">
-    <%= f.label :hora_llegada %><br>
-    <%= f.time_select :hora_llegada %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre_transporte_id %><br>
-    <%= f.text_field :nombre_transporte_id %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre_transporte_id %><br>
-    <%= f.number_field :nombre_transporte_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  transportes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

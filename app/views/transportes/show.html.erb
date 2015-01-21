@@ -1,39 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Transporte -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Transporte %></h1>
+</div>
 
-<p>
-  <strong>Lugar salida:</strong>
-  <%= @transporte.lugar_salida %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lugar_salida) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.lugar_salida %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lugar_llegada) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.lugar_llegada %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:hora_salida) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.hora_salida %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:hora_llegada) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.hora_llegada %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:fecha) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.fecha %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_transporte_id) %></dt>
+      <dd><pre class="prettyprint"><%= @transporte.nombre_transporte_id %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Lugar llegada:</strong>
-  <%= @transporte.lugar_llegada %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              transportes_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_transporte_path(@transporte), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              transporte_path(@transporte),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Hora salida:</strong>
-  <%= @transporte.hora_salida %>
-</p>
-
-<p>
-  <strong>Hora llegada:</strong>
-  <%= @transporte.hora_llegada %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @transporte.fecha %>
-</p>
-
-<p>
-  <strong>Nombre transporte:</strong>
-  <%= @transporte.nombre_transporte %>
-</p>
-
-<p>
-  <strong>Nombre transporte:</strong>
-  <%= @transporte.nombre_transporte_id %>
-</p>
-
-<%= link_to 'Edit', edit_transporte_path(@transporte) %> |
-<%= link_to 'Back', transportes_path %>

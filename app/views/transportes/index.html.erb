@@ -1,37 +1,46 @@
-<h1>Listing transportes</h1>
-
-<table>
+<%- model_class = Transporte -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Transporte %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Lugar salida</th>
-      <th>Lugar llegada</th>
-      <th>Hora salida</th>
-      <th>Hora llegada</th>
-      <th>Fecha</th>
-      <th>Nombre transporte</th>
-      <th>Nombre transporte</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:lugar_salida) %></th>
+      <th><%= model_class.human_attribute_name(:lugar_llegada) %></th>
+      <th><%= model_class.human_attribute_name(:hora_salida) %></th>
+      <th><%= model_class.human_attribute_name(:hora_llegada) %></th>
+      <th><%= model_class.human_attribute_name(:fecha) %></th>
+      <th><%= model_class.human_attribute_name(:nombre_transporte_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @transportes.each do |transporte| %>
       <tr>
+        <td><%= transporte.id %></td>
         <td><%= transporte.lugar_salida %></td>
         <td><%= transporte.lugar_llegada %></td>
         <td><%= transporte.hora_salida %></td>
         <td><%= transporte.hora_llegada %></td>
         <td><%= transporte.fecha %></td>
-        <td><%= transporte.nombre_transporte %></td>
         <td><%= transporte.nombre_transporte_id %></td>
-        <td><%= link_to 'Show', transporte %></td>
-        <td><%= link_to 'Edit', edit_transporte_path(transporte) %></td>
-        <td><%= link_to 'Destroy', transporte, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l transporte.created_at, format: :long %></td>
+        <td>
+          <%= link_to transporte_path(transporte), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to transporte_path(transporte), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Transporte', new_transporte_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_transporte_path,
+            :class => 'btn btn-primary' %>
