@@ -1,39 +1,46 @@
-<h1>Listing lugars</h1>
-
-<table>
+<%- model_class = Lugar -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Lugar %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nombre lugar</th>
-      <th>Descripcion lugar</th>
-      <th>Telefonos</th>
-      <th>Link</th>
-      <th>Tipo lugar</th>
-      <th>Ubicacion</th>
-      <th>Tipo lugar</th>
-      <th>Ubicacion</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:nombre_lugar) %></th>
+      <th><%= model_class.human_attribute_name(:descripcion_lugar) %></th>
+      <th><%= model_class.human_attribute_name(:telefonos) %></th>
+      <th><%= model_class.human_attribute_name(:link) %></th>
+      <th><%= model_class.human_attribute_name(:tipo_lugar_id) %></th>
+      <th><%= model_class.human_attribute_name(:ubicacion_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @lugars.each do |lugar| %>
       <tr>
+        <td><%= lugar.id %></td>
         <td><%= lugar.nombre_lugar %></td>
         <td><%= lugar.descripcion_lugar %></td>
         <td><%= lugar.telefonos %></td>
         <td><%= lugar.link %></td>
-        <td><%= lugar.tipo_lugar %></td>
-        <td><%= lugar.ubicacion %></td>
         <td><%= lugar.tipo_lugar_id %></td>
         <td><%= lugar.ubicacion_id %></td>
-        <td><%= link_to 'Show', lugar %></td>
-        <td><%= link_to 'Edit', edit_lugar_path(lugar) %></td>
-        <td><%= link_to 'Destroy', lugar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l lugar.created_at, format: :long %></td>
+        <td>
+          <%= link_to lugar_path(lugar), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to lugar_path(lugar), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Lugar', new_lugar_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_lugar_path,
+            :class => 'btn btn-primary' %>

@@ -1,49 +1,46 @@
-<%= form_for(@lugar) do |f| %>
-  <% if @lugar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lugar.errors.count, "error") %> prohibited this lugar from being saved:</h2>
-
-      <ul>
-      <% @lugar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @lugar, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :nombre_lugar, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nombre_lugar, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :descripcion_lugar, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :descripcion_lugar, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefonos, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :telefonos, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :link, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :link, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo_lugar_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :tipo_lugar_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ubicacion_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :ubicacion_id, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :nombre_lugar %><br>
-    <%= f.text_field :nombre_lugar %>
-  </div>
-  <div class="field">
-    <%= f.label :descripcion_lugar %><br>
-    <%= f.text_area :descripcion_lugar %>
-  </div>
-  <div class="field">
-    <%= f.label :telefonos %><br>
-    <%= f.text_area :telefonos %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_lugar_id %><br>
-    <%= f.text_field :tipo_lugar_id %>
-  </div>
-  <div class="field">
-    <%= f.label :ubicacion_id %><br>
-    <%= f.text_field :ubicacion_id %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_lugar_id %><br>
-    <%= f.number_field :tipo_lugar_id %>
-  </div>
-  <div class="field">
-    <%= f.label :ubicacion_id %><br>
-    <%= f.number_field :ubicacion_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  lugars_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

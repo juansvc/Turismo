@@ -1,6 +1,5 @@
-<h1>Editing lugar</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @lugar %> |
-<%= link_to 'Back', lugars_path %>
+<%- model_class = Lugar -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Lugar %></h1>
+</div>
+<%= render :partial => 'form' %>
