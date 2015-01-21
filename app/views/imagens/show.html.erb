@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Imagen -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Imagen %></h1>
+</div>
 
-<p>
-  <strong>Nombre imagen:</strong>
-  <%= @imagen.nombre_imagen %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nombre_imagen) %></dt>
+      <dd><pre class="prettyprint"><%= @imagen.nombre_imagen %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:imagen) %></dt>
+      <dd><pre class="prettyprint"><%= @imagen.imagen %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:descripcion_imagen) %></dt>
+      <dd><pre class="prettyprint"><%= @imagen.descripcion_imagen %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lugar_id) %></dt>
+      <dd><pre class="prettyprint"><%= @imagen.lugar_id %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Imagen:</strong>
-  <%= @imagen.imagen %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              imagens_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_imagen_path(@imagen), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              imagen_path(@imagen),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Descripcion imagen:</strong>
-  <%= @imagen.descripcion_imagen %>
-</p>
-
-<p>
-  <strong>Lugar:</strong>
-  <%= @imagen.lugar %>
-</p>
-
-<p>
-  <strong>Lugar:</strong>
-  <%= @imagen.lugar_id %>
-</p>
-
-<%= link_to 'Edit', edit_imagen_path(@imagen) %> |
-<%= link_to 'Back', imagens_path %>
