@@ -5,4 +5,5 @@ class Lugar < ActiveRecord::Base
   has_many :imagens
   has_many :comentarios
   has_and_belongs_to_many :actividads
+  validates_formatting_of :link, using: :url
 end
