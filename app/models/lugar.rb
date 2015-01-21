@@ -3,4 +3,5 @@ class Lugar < ActiveRecord::Base
   belongs_to :ubicacion
   has_and_belongs_to_many :transportes
   has_many :imagens
+  has_many :comentarios
 end
